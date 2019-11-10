@@ -12,11 +12,30 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  final _veriffFlutter = VeriffFlutter();
+  String _veriffFlutterStatus = 'Unknown';
+  StreamSubscription<VeriffFlutterStatus> _veriffFlutterSubscription;
 
   @override
   void initState() {
     super.initState();
+    _veriffFlutterSubscription = _veriffFlutter.onStatusChanged.listen(_updateVeriffFlutterStatus);
+
   }
+
+
+  @override
+  void dispose() {
+    _veriffFlutterSubscription.cancel();
+    super.dispose();
+  }
+
+ Future<void> _updateVeriffFlutterStatus(VeriffFlutterStatus result) async {
+   setState(() {
+     _veriffFlutterStatus = "updated";
+   });
+ }
+
 
   // Platform messages are asynchronous, so we initialize in an async method.
   Future<void> startAuthentication() async {
@@ -25,7 +44,7 @@ class _MyAppState extends State<MyApp> {
       var config = VeriffFlutterConfig("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzZXNzaW9uX2lkIjoiZTNjN2MzMzQtN2Q5Ni00NGZjLWEzYTgtYTNmYTM0NDZmYjliIiwiaWF0IjoxNTczMTEwMjA4fQ.DzT2dVNVDX_6xkrDowqq8ry5tfK_0RsBE7v4Q_CyiO8",
                   color: "340000");
 
-      await VeriffFlutter.startAuthentication(config);
+      await _veriffFlutter.startAuthentication(config);
     } on PlatformException {
       print('Failed.');
     }
@@ -39,9 +58,10 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Plugin example app'),
         ),
         body: Center(
-          child: FlatButton(child: Text('Start Verification'), onPressed: () {
-            startAuthentication();
-          },),
+          child: Column(children: [
+           FlatButton(child: Text('Start Verification'), onPressed: () { startAuthentication(); }),
+           Text(_veriffFlutterStatus),
+          ]),
         ),
       ),
     );
