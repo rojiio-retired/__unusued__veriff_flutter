@@ -23,9 +23,9 @@ class VeriffFlutterConfig {
   }
 }
 
-class VeriffFlutterStatus {
+// class VeriffFlutterStatus {
 
-}
+// }
 
 
 // extends StatelessWidget
@@ -49,7 +49,7 @@ class VeriffFlutter  {
 
   static VeriffFlutter _singleton;
 
-  Stream<VeriffFlutterStatus> _onStatusChangedChanged;
+  Stream<String> _onStatusChangedChanged;
 
   @visibleForTesting
   static const MethodChannel channel = const MethodChannel('plugins.roji.io/veriff_flutter');
@@ -58,7 +58,7 @@ class VeriffFlutter  {
   static const EventChannel eventChannel = EventChannel('plugins.roji.io/veriff_flutter_status');
 
   /// Fires whenever the connectivity state changes.
-  Stream<VeriffFlutterStatus> get onStatusChanged {
+  Stream<String> get onStatusChanged {
     if (_onStatusChangedChanged == null) {
       _onStatusChangedChanged = eventChannel
           .receiveBroadcastStream()
@@ -71,7 +71,7 @@ class VeriffFlutter  {
     await channel.invokeMethod('startAuthentication', config.toMap());
   }
 
-  VeriffFlutterStatus _parseVerifyFlutterStatus(dynamic event) {
-    return VeriffFlutterStatus();
+  String _parseVerifyFlutterStatus(dynamic event) {
+    return event;
   }
 }

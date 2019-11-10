@@ -14,7 +14,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   final _veriffFlutter = VeriffFlutter();
   String _veriffFlutterStatus = 'Unknown';
-  StreamSubscription<VeriffFlutterStatus> _veriffFlutterSubscription;
+  StreamSubscription<String> _veriffFlutterSubscription;
 
   @override
   void initState() {
@@ -30,9 +30,9 @@ class _MyAppState extends State<MyApp> {
     super.dispose();
   }
 
- Future<void> _updateVeriffFlutterStatus(VeriffFlutterStatus result) async {
+ Future<void> _updateVeriffFlutterStatus(String result) async {
    setState(() {
-     _veriffFlutterStatus = "updated";
+     _veriffFlutterStatus = result;
    });
  }
 
