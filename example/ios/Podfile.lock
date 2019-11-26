@@ -1,15 +1,13 @@
 PODS:
   - Flutter (1.0.0)
-  - Presentr (1.9)
   - ReachabilitySwift (4.3.1)
   - Socket.IO-Client-Swift (15.0.0):
     - Starscream (~> 3.1)
   - Starscream (3.1.1)
-  - veriff_flutter (0.0.1):
+  - veriff_flutter (0.1.0):
     - Flutter
     - VeriffSDK (>= 2.6.1)
-  - VeriffSDK (2.6.1):
-    - Presentr (~> 1.9)
+  - VeriffSDK (2.6.2):
     - ReachabilitySwift (~> 4.3.1)
     - Socket.IO-Client-Swift (~> 15.0.0)
     - VeriffWebRTC (~> 1.0.1)
@@ -21,7 +19,6 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
-    - Presentr
     - ReachabilitySwift
     - Socket.IO-Client-Swift
     - Starscream
@@ -36,14 +33,13 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
-  Presentr: 7078d7eb5d1661ebeaae60c9e42a1e534de1b993
   ReachabilitySwift: 4032e2f59586e11e3b0ebe15b167abdd587a388b
   Socket.IO-Client-Swift: c039a808195d22a7192962841b8c035cb61ea49e
   Starscream: 4bb2f9942274833f7b4d296a55504dcfc7edb7b0
-  veriff_flutter: e6b62a031d72281b8d33e13484782508610c808a
-  VeriffSDK: dae35ff9b5e7e9fcccc090ed2ea1c7895dd1100f
+  veriff_flutter: 5fa38bd1f481634f8c11c3ca90f0be236a208cda
+  VeriffSDK: dd25d8ba9fbbe986d37e4fdaf429ad69c48c607d
   VeriffWebRTC: 47806fee639a69ae5f82f2b031d20f0014d4a016
 
-PODFILE CHECKSUM: 1684eb5a3603bbff42054fc5031250e7ae86cfe4
+PODFILE CHECKSUM: 426cd9b4e72abad4a7754e9ce997e91c1b0e7265
 
-COCOAPODS: 1.8.3
+COCOAPODS: 1.8.4
