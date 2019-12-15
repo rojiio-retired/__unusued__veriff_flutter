@@ -92,6 +92,8 @@ extension SwiftVeriffFlutterPlugin: VeriffDelegate {
       switch result.code  {
          case .UNABLE_TO_ACCESS_CAMERA:
            code = "UNABLE_TO_ACCESS_CAMERA";
+         case .UNABLE_TO_ACCESS_MICROPHONE:
+           code = "UNABLE_TO_ACCESS_MICROPHONE";
          case .STATUS_USER_CANCELED:
            code = "STATUS_USER_CANCELED";
          case .STATUS_SUBMITTED:
@@ -100,12 +102,12 @@ extension SwiftVeriffFlutterPlugin: VeriffDelegate {
            code = "STATUS_ERROR_SESSION";
          case .STATUS_ERROR_NETWORK:
            code = "STATUS_ERROR_NETWORK";
-         case .STATUS_ERROR_NO_IDENTIFICATION_METHODS_AVAILABLE:
-           code = "STATUS_ERROR_NO_IDENTIFICATION_METHODS_AVAILABLE";
          case .STATUS_DONE:
            code = "STATUS_DONE";
          case .STATUS_ERROR_UNKNOWN:
            code = "STATUS_ERROR_UNKNOWN";
+         case .UNSUPPORTED_SDK_VERSION:
+          code = "UNSUPPORTED_SDK_VERSION";
          default:
            code = "UNSUPPORTED_RESULT";
 
